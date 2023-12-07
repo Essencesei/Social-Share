@@ -1,7 +1,9 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { PrismaClient } from "@prisma/client";
 
+const prisma = new PrismaClient();
 export const getSinglePost = async (postId: string) => {
   try {
     const post = await prisma?.post.findFirst({

@@ -1,6 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 type PostCommentType = {
   props: {

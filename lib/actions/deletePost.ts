@@ -3,6 +3,9 @@
 import { revalidatePath } from "next/cache";
 import { utapi } from "../uploadthing/utapi";
 import { FileKeyType } from "@/components/feed/FeedHeaderOptions";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export const deletePost = async (postId: string, filekey?: FileKeyType[]) => {
   try {

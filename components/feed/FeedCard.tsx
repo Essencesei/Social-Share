@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import React, { useContext } from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import FeedHeader from "./FeedHeader";

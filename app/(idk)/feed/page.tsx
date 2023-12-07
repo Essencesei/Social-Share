@@ -9,20 +9,22 @@ const DynamicCompose = dynamic(() => import("@/components/shared/Compose"));
 const DynamicFeedCard = dynamic(() => import("@/components/feed/FeedCard"));
 
 const Feed = async () => {
-  const [session, posts] = await Promise.all([
-    getServerSession(authOptions),
-    getPosts(),
-  ]);
+  const session = await getServerSession(authOptions);
+  const posts = await getPosts();
 
   return (
     <section className="m-2 mr-[23.2rem] flex w-full flex-col gap-2">
-      <DynamicCompose
-        composeType="POST"
-        props={{
-          session: session,
-        }}
-      />
-      <DynamicFeedCard feedType="FEED" props={posts} session={session} />
+      {posts && (
+        <>
+          <DynamicCompose
+            composeType="POST"
+            props={{
+              session: session,
+            }}
+          />
+          <DynamicFeedCard feedType="FEED" props={posts} session={session} />
+        </>
+      )}
     </section>
   );
 };

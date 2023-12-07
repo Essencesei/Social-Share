@@ -1,6 +1,9 @@
 "use server";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 type postPostProps = {
   props: Prisma.PostGetPayload<{
