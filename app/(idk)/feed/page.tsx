@@ -19,10 +19,10 @@ const Feed = async () => {
       <DynamicCompose
         composeType="POST"
         props={{
-          session,
+          session: session,
         }}
       />
-      <DynamicFeedCard feedType="FEED" props={posts} />
+      <DynamicFeedCard feedType="FEED" props={posts} session={session} />
     </section>
   );
 };

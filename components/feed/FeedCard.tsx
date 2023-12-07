@@ -1,13 +1,16 @@
-"use client";
-import React from "react";
+// "use client";
+import React, { useContext } from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import FeedHeader from "./FeedHeader";
 import FeedContent from "./FeedContent";
-import FeedFooter from "./FeedFooter";
+
 import { Prisma } from "@prisma/client";
 import Link from "next/link";
+import FeedFooterLike from "./FeedFooterLike";
+import { Session } from "next-auth";
 
 type FeedCardProps = {
+  session: Session | null;
   feedType: string;
   props:
     | Array<
@@ -21,8 +24,7 @@ type FeedCardProps = {
     | undefined;
 };
 
-const FeedCard = ({ props, feedType }: FeedCardProps) => {
-  console.log(typeof props);
+const FeedCard = ({ props, session }: FeedCardProps) => {
   return (
     <>
       {Array.isArray(props) ? (
@@ -53,8 +55,14 @@ const FeedCard = ({ props, feedType }: FeedCardProps) => {
                     />
                   </CardContent>
                 </Link>
-                <CardFooter>
-                  <FeedFooter />
+                <CardFooter className="flex gap-4">
+                  <FeedFooterLike
+                    props={{
+                      likes: prop.likes,
+                      postId: prop.id,
+                      likerId: session?.user.id as string,
+                    }}
+                  />
                 </CardFooter>
               </Card>
             );
@@ -84,9 +92,7 @@ const FeedCard = ({ props, feedType }: FeedCardProps) => {
               }}
             />
           </CardContent>
-          <CardFooter>
-            <FeedFooter />
-          </CardFooter>
+          <CardFooter></CardFooter>
         </Card>
       )}
     </>

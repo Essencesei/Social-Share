@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import Compose from "../shared/Compose";
 import { Session } from "next-auth";
 import PostCardCommentsContent from "./PostCardCommentsContent";
 import { Prisma } from "@prisma/client";
+
 type PostCardCommentsProps = {
   props: {
     session: Session | null;

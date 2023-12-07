@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { postPost } from "@/lib/actions/postPost";
@@ -8,7 +7,6 @@ import { Session } from "next-auth";
 import { IoIosSend } from "react-icons/io";
 import { ImageData } from "../compose/ComposeImage";
 import { VideoData } from "../compose/ComposeVideo";
-// import ComposePrivacy from "./ComposePrivacy";
 import dynamic from "next/dynamic";
 import { postComment } from "@/lib/actions/postComment";
 import { Textarea } from "../ui/textarea";

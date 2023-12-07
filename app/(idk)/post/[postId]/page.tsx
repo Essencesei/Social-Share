@@ -17,9 +17,10 @@ const Post = async ({ params }: PostProps) => {
   const post = await getSinglePost(params.postId);
 
   if (!post) redirect("/feed");
+
   return (
     <section className="m-2 mr-[23.2rem] flex   w-full gap-2 ">
-      <FeedCard feedType="POST" props={post!} />
+      <FeedCard feedType="POST" props={post!} session={session} />
       <PostCardComments
         postId={params.postId}
         props={{ session: session, comments: post.comments }}

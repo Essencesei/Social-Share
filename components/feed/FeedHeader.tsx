@@ -18,6 +18,11 @@ type FeedHeaderProps = {
 };
 
 const FeedHeader = ({ props }: FeedHeaderProps) => {
+  const keys = [
+    JSON.parse(props.image as string),
+    JSON.parse(props.video as string),
+  ];
+
   return (
     <div className="flex items-center gap-4">
       <Avatar>
@@ -37,10 +42,7 @@ const FeedHeader = ({ props }: FeedHeaderProps) => {
       <FeedHeaderOptions
         props={{
           postId: props.id,
-          key: [
-            JSON.parse(props.image as string),
-            JSON.parse(props.video as string),
-          ],
+          key: keys,
         }}
       />
     </div>

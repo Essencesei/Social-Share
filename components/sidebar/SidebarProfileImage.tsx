@@ -23,8 +23,8 @@ const SidebarProfileImage = ({ props }: SidebarProfileImageProps) => {
             <AvatarImage src={props?.session?.user?.image!}></AvatarImage>
           </Avatar>
           <span>
-            <p>{props?.session?.user?.name}</p>
-            <p className="text-xs font-semibold text-gray-400">
+            <p className="line-clamp-1">{props?.session?.user?.name}</p>
+            <p className="line-clamp-1 text-xs font-semibold text-gray-400">
               {props?.session?.user?.email}
             </p>
           </span>

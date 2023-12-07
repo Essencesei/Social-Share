@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { Prisma } from "@prisma/client";
 import { VideoData } from "../compose/ComposeVideo";
 import { ImageData } from "../compose/ComposeImage";
+
 type FeedContentProps = {
   feedType?: string;
   props: Prisma.PostGetPayload<{
